@@ -14,6 +14,7 @@ items = []
 
 
 class Item(Resource):
+    # Authentication for getting particular item from the items
     @jwt_required()
     def get(self, name):
         item = next(filter(lambda x: x['name'] == name, items), None)
@@ -30,6 +31,12 @@ class Item(Resource):
         item = {'name': name, 'price': data['price']}
         items.append(item)
         return item, 201
+
+    def delete(self, name):
+        global items
+        # filter the given name from the items
+        items = list(filter(lambda x: x['name'] != name, items))
+        return {"message": "Item Deleted"}
 
 
 class ItemList(Resource):
