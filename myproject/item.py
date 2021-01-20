@@ -24,7 +24,7 @@ class Item(Resource):
         cursor = connection.cursor()
 
         query = "SELECT * FROM items WHERE name=?"
-        result = cursor.execute(query)
+        result = cursor.execute(query, (name,))
         row = result.fetchone()
         connection.close()
 

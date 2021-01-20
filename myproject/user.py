@@ -29,7 +29,7 @@ class User:
         connection = sqlite3.connect('data.db')
         cursor = connection.cursor()
 
-        query = "SELECT * FROM users WHERE _id = ?"
+        query = "SELECT * FROM users WHERE id=?"
         result = cursor.execute(query, (_id,))
         row = result.fetchone()
         if row:
