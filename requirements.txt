@@ -10,5 +10,5 @@ PyJWT==1.4.2
 pytz==2020.5
 selenium==3.141.0
 six==1.15.0
-urllib3==1.26.2
+urllib3==1.26.3
 Werkzeug==1.0.1
